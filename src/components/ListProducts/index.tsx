@@ -1,9 +1,8 @@
 import {ProductList} from './styles';
 import {FiShoppingCart} from 'react-icons/fi'; 
-import ProductImg from '../../assets/img/yellow-ball.webp';
-import { useEffect, useState } from 'react';
-import { api } from '../../services/api';
- 
+import { useState } from 'react';
+
+
 interface Product {
   id: number;
   category_id: number;
@@ -12,15 +11,13 @@ interface Product {
   price: number; 
 }
 
-export function ListProducts() {
+interface ListProductProps {
+  products: Product[]; 
+}
 
-  const [products, setProducts] = useState<Product[]>([]);
+export function ListProducts({products}: ListProductProps) {
 
-  useEffect(() => {
-    api.get('/products').then((response) => {
-      setProducts(response.data.products); 
-    });
-  }, []); 
+  const [listProducts, setListProducts] = useState<Product[]>(products); 
 
   return (
     <ProductList>

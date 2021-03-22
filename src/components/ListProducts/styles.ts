@@ -25,6 +25,9 @@ export const ProductList = styled.div`
       font-size: 1rem;
       display: block;
       font-weight: 500;
+      height: 70px;
+      display: flex;
+      align-items:center;
       color: #424242;
     }
 
