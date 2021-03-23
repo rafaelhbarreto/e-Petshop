@@ -1,29 +1,28 @@
 import {ContainerHomeContent} from './styles';
 import {Sidebar} from '../Sidebar'; 
 import {ListProducts} from '../ListProducts'; 
-import { useParams } from 'react-router';
+import { ProductsProvider } from '../../hooks/useProducts';
+import { CategoryProvider } from '../../hooks/useCategory';
+import { CategoriesProvider } from '../../hooks/useCategories';
 
- 
-interface Product {
-  id: number;
-  category_id: number;
-  title: string;
-  image: string;
-  price: number; 
-}
 
-interface HomeContentProps {
-  products: Product[]; 
-}
-
-export function HomeContent({products}: HomeContentProps) {
+export function HomeContent() {
 
   return (
     <>
       <ContainerHomeContent>
-        <Sidebar />
-        <ListProducts products = {products}/>
+        
+        <CategoryProvider>
+          <CategoriesProvider>
+            <Sidebar />
+          </CategoriesProvider>
+          
+          <ProductsProvider>
+            <ListProducts />
+          </ProductsProvider>
+        </CategoryProvider>
+      
       </ContainerHomeContent>
     </>
   );  
-}
+} 

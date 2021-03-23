@@ -1,24 +1,18 @@
 import {ProductList} from './styles';
 import {FiShoppingCart} from 'react-icons/fi'; 
-import { useState } from 'react';
+import { useProducts } from '../../hooks/useProducts';
+import { useParams } from 'react-router';
 
-
-interface Product {
-  id: number;
-  category_id: number;
-  title: string;
-  image: string;
-  price: number; 
+interface RouteParams {
+  id?: string
 }
 
-interface ListProductProps {
-  products: Product[]; 
-}
+export function ListProducts() {
 
-export function ListProducts({products}: ListProductProps) {
-
-  const [listProducts, setListProducts] = useState<Product[]>(products); 
-
+  const params = useParams<RouteParams>();
+  
+  const products = useProducts(); 
+  
   return (
     <ProductList>
       <h3>Lista de produtos</h3>

@@ -1,23 +1,10 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { SidebarWrap } from "./styles";
-import {api} from '../../services/api';
 import { Link } from "react-router-dom";
-
-interface Category {
-  id: number;
-  title: string;
-}
+import { useCategories } from "../../hooks/useCategories";
 
 export function Sidebar() {
 
-  const [categories, setCategories] = useState<Category[]>([]); 
-
-  useEffect(() => {
-      api.get('/categories').then((response) => {
-        setCategories(response.data.categories); 
-      })
-  }, []); 
+  const categories = useCategories();
 
   return (
     <SidebarWrap>
