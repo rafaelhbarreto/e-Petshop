@@ -1,18 +1,12 @@
 import {ProductList} from './styles';
 import {FiShoppingCart} from 'react-icons/fi'; 
 import { useProducts } from '../../hooks/useProducts';
-import { useParams } from 'react-router';
 
-interface RouteParams {
-  id?: string
-}
 
 export function ListProducts() {
 
-  const params = useParams<RouteParams>();
-  
   const products = useProducts(); 
-  
+
   return (
     <ProductList>
       <h3>Lista de produtos</h3>
@@ -27,7 +21,7 @@ export function ListProducts() {
               currency: 'BRL'
             }).format(product.price)}
           </span>
-          <button>
+          <button type="button">
             <div>
               <FiShoppingCart />
               0

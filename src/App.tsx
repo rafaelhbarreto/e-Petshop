@@ -1,11 +1,12 @@
 import {createServer} from 'miragejs'; 
-
-import {Home} from './pages/Home'; 
 import { Routes } from './routes';
+
+// Fake data
 import {categories} from './services/data/categories';
 import {products} from './services/data/products';
 
 
+// fake data
 createServer({
   routes() {
     this.namespace = 'api'; 
@@ -29,7 +30,8 @@ createServer({
       return { products: productsCategory }      
     });
   }
-})
+});
+
 
 function App() {
   return (

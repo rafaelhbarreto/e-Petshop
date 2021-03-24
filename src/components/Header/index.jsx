@@ -7,6 +7,7 @@ import {FiShoppingCart, FiHeart, FiUser} from 'react-icons/fi';
 import { FormSearch } from '../FormSearch';
 
 export function Header() {
+
   return (
     <>
       <TopMessage />

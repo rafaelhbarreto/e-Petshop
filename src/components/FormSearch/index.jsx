@@ -1,10 +1,6 @@
 import {Form} from './styles'; 
 
-interface FormSearchProps {
-  placeholder: string; 
-}
-
-export function FormSearch({placeholder}: FormSearchProps) {
+export function FormSearch({placeholder}) {
   return (
     <>
       <Form>

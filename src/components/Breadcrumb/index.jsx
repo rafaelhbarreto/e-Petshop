@@ -1,15 +1,6 @@
 import { BreadList, Container} from "./styles";
 
-interface Link {
-  label: string;
-  link: string; 
-}
-
-interface BreadcrumbProps {
-  links: Array<Link>;
-}
-
-export function Breadcrumb({links}: BreadcrumbProps) {
+export function Breadcrumb({links}) {
   
   return (
     <>
