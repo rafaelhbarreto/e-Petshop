@@ -173,3 +173,16 @@ export const Resume = styled.div`
     text-align: center;
   }
 `;
+
+export const Alert = styled.div`
+  display: block;
+  margin: 1rem 0;
+  background: var(--blue); 
+  color: white; 
+  border-radius: 4px;
+  padding: .8rem 1.2rem;
+
+  a {
+    color: white; 
+  }
+`;  

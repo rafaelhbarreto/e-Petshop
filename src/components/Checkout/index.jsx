@@ -1,6 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {Container, ContainerWrap, Resume} from './styles'; 
+import {
+  Container, 
+  ContainerWrap, 
+  Resume, 
+  Alert
+} from './styles'; 
 
 export function Checkout() {
 
@@ -123,6 +128,14 @@ export function Checkout() {
         </ContainerWrap>
 
       </Container>}
+
+      {products.length == 0 &&
+        <Container>    
+          <Alert>
+            <b>Atenção!</b> Carrinho vazio. <Link to="/">Clique aqui</Link> para adicionar itens.
+          </Alert> 
+        </Container> 
+      }
     </>
   );
 }
