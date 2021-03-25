@@ -1,11 +1,32 @@
 import {ProductList} from './styles';
 import {FiShoppingCart} from 'react-icons/fi'; 
 import { useProducts } from '../../hooks/useProducts';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 export function ListProducts() {
 
+  const dispatch = useDispatch(); 
   const products = useProducts(); 
+
+  const quantityProducts = useSelector(state => {
+  
+    const amount = []; 
+    state.cart.forEach(itemCart => {
+      amount[itemCart.product.id] = itemCart.quantity; 
+    });
+
+    return amount;
+  }); 
+
+  const handleAddProduct = (item) => {
+    
+    dispatch({
+      type: "@cart/ADD_PRODUCT",
+      payload: {product: item}
+    }); 
+  }
+
 
   return (
     <ProductList>
@@ -21,10 +42,10 @@ export function ListProducts() {
               currency: 'BRL'
             }).format(product.price)}
           </span>
-          <button type="button">
+          <button type="button" onClick={() => handleAddProduct(product)}>
             <div>
               <FiShoppingCart />
-              0
+              {quantityProducts[product.id] | 0}
             </div>
             <span>
               Adicionar ao carrinho

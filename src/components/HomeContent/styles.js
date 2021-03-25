@@ -8,4 +8,5 @@ export const ContainerHomeContent = styled.div`
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 15px;
+  margin-bottom: 50px;
 `;

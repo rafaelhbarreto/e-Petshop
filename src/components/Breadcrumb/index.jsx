@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { BreadList, Container} from "./styles";
 
 export function Breadcrumb({links}) {
@@ -8,7 +9,7 @@ export function Breadcrumb({links}) {
         {links.length > 0 && 
           <BreadList>
             {links.map((link) => (
-              <li><a href="#">{link.label}</a></li>
+              <li><Link to={link.link}>{link.label}</Link></li>
               ))}
           </BreadList>
         }

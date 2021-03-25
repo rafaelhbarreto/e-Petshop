@@ -1,23 +1,21 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { Breadcrumb } from '../../components/Breadcrumb';
 import {Header} from '../../components/Header';
-import {HomeContent} from '../../components/HomeContent';
+import {Checkout as CheckoutContent} from '../../components/Checkout';
 
-export function Home() 
+export function Checkout() 
 {
   
   const breadCumb = [
     {label: 'Home', 
     link: '/'},
-    {label: 'Produtos', link: ''}
+    {label: 'Meu carrinho', link: ''}
   ];
 
   return (
     <>
       <Header />
       <Breadcrumb links={breadCumb} />
-      <HomeContent />
+      <CheckoutContent />
     </>
   );
 }

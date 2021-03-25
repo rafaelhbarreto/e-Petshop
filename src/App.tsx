@@ -5,6 +5,11 @@ import { Routes } from './routes';
 import {categories} from './services/data/categories';
 import {products} from './services/data/products';
 
+// Redux 
+import {store} from './store'; 
+import {Provider} from 'react-redux';
+
+
 
 // fake data
 createServer({
@@ -35,7 +40,9 @@ createServer({
 
 function App() {
   return (
-    <Routes />
+    <Provider store={store}>
+      <Routes />
+    </Provider>
   );
 }
 

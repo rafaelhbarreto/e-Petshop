@@ -5,8 +5,13 @@ import {Container, SectionHeader, Logo, CartActions} from './styles';
 import LogoImg from '../../assets/img/logo.png'; 
 import {FiShoppingCart, FiHeart, FiUser} from 'react-icons/fi'; 
 import { FormSearch } from '../FormSearch';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export function Header() {
+
+  const cartItems = useSelector(state => state.cart);
+  const total = cartItems.reduce((acc, cur) => acc + cur.quantity, 0);
 
   return (
     <>
@@ -18,17 +23,10 @@ export function Header() {
           </Logo>
           <FormSearch placeholder="O que você está procurando ?"/>
           <CartActions>
-            <a href="/">
-              <FiUser />
-              </a>
-            <a href="/">
-              <span>1</span>
-              <FiHeart />
-            </a>
-            <a href="/">
-              <span>0</span>
+            <Link to="/checkout">
+              <span>{total}</span>
               <FiShoppingCart />
-            </a>
+            </Link>
           </CartActions>
         </Container>
      </SectionHeader>
